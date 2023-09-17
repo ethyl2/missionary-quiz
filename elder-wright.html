@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elder Wright Quiz Matching Game!</title>
+  <meta property="og:image" content="https://ethyl2.github.io/missionary-quiz/static/images/missionary-og.png">
+    <meta property="og:image:alt" content="Lindon 13th Ward Missionary Quiz">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=REM:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-bottom" style="background: url('./static/images/bg/swirl-bg-10.jpg')">
+    <div x-data="game()" class="p-2 flex items-center justify-center min-h-screen md:p-10"
+        style="font-family: 'REM', sans-serif;"
+        >
+      <div x-data="{ show: true, message: 'Elder Wright Quiz Matching Game!'}"
+        x-show.transition.opacity="show"
+        x-text="message"
+        @flash.window="
+          message = $event.detail.message;
+          show = true;
+          setTimeout(() => show = false, 1000)
+        "
+        class="fixed top-0 left-0 m-2 p-10 font-bold text-lg md:m-12 xl:text-xl"
+      ></div>
+      <h1 class="fixed top-0 right-0 m-12 pt-10 font-bold text-3xl md:p-10">
+        <span x-text="points"></span>
+        <span class="text-xs">points</span>
+      </h1>
+
+      <div class="grid grid-cols-3 gap-2 pt-32 sm:gap-4 sm:grid-cols-4 md:pt-10 md:grid-cols-6 md:gap-8">
+        <template x-for="card in cards">
+          <div>
+            <button
+              x-show="!card.cleared"
+              class="px-1 pb-1 h-32 w-28 rounded hover:opacity-80 text-xs flex items-center justify-center font-semibold sm:h-48 sm:w-32 md:h-52 md:w-28 lg:w-40 lg:h-56 xl:h-60 xl:w-48 xl:text-base"
+              :class="{
+                'overflow-y-auto text-black': card.flipped,
+                'overflow-hidden text-transparent': !card.flipped,
+                'pt-24 sm:pt-16 italic': card.text.length > 150,
+                'pt-1': card.text.length <= 150,
+              }"
+              :style="'background: ' + (!card.flipped? 'black' : card.color)
+                + '; cursor: ' + (flippedCards.length == 2 ? 'not-allowed' : 'auto')"
+              @click="flipCard(card)"
+              :disabled="flippedCards.length === 2"
+              x-text="card.text"
+              >
+            </button>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div 
+        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500 mx-auto mb-12 md:mb-24" 
+        style="background-image: url('./static/images/elder-wright.jpeg');"
+    ></div>
+    <script>
+      function pause(milliseconds = 1000) {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+      }
+
+      function flash(message) {
+        window.dispatchEvent(new CustomEvent('flash', {
+          detail: { message }
+        }))
+      }
+
+      function game() {
+        return {
+          cards: ([
+            { color: 'yellow', flipped: false, cleared: false, text: '😋 What is something that you eat a lot of?'},
+            { color: 'yellow', flipped: false, cleared: false , text: '🍗 Chicken and rice 🍚'},
+            { color: 'pink', flipped: false, cleared: false, text: 'What is something unusual that you have eaten on your mission?'},
+            { color: 'pink', flipped: false, cleared: false, text: 'Liver'},
+            { color: 'gold', flipped: false, cleared: false , text: '💬 What is the weirdest thing someone has said to you while on your mission?'},
+            { color: 'gold', flipped: false, cleared: false , text: 'You megged me with a cockroach 🪳'},
+            { color: 'orange', flipped: false, cleared: false, text: 'What is something unusual that you\'ve found in your apartment or experienced about your apartment?'},
+            { color: 'orange', flipped: false, cleared: false, text: '🎳 A bowling ball from the 70s'},
+            { color: 'aquamarine', flipped: false, cleared: false, text: 'Name an animal or creature you\'ve found in your apartment'},
+            { color: 'aquamarine', flipped: false, claquamarine: false, text: 'Charizard the cat 🐈'},
+            { color: 'lavender', flipped: false, cleared: false , text: '💬 What is a phrase you hear a lot in your mission area?'},
+            { color: 'lavender', flipped: false, cleared: false, text: '💬 "The field is white."'},
+            { color: 'salmon', flipped: false, cleared: false, text: 'What is your favorite p-day activity?'},
+            { color: 'salmon', flipped: false, cleared: false, text: 'gator-Ball'},
+            { color: 'springgreen', flipped: false, cleared: false, text: 'What is the most unusual way you have met a friend to teach?'},
+            { color: 'springgreen', flipped: false, cleared: false, text: 'The missionaries fixed his septic tank'},
+            { color: 'chartreuse', flipped: false, cleared: false, text: '👔 What is your favorite article of clothing that you have on your mission?'},
+            { color: 'chartreuse', flipped: false, cleared: false, text: 'Temple belt buckle that my grandfather gave me'},
+          ]).sort(() => Math.random() - 0.5),
+          misses: 0,
+          get flippedCards() {
+            return this.cards.filter(card => card.flipped)
+          },
+          get clearedCards() {
+            return this.cards.filter(card => card.cleared)
+          },
+          get remainingCards() {
+            return this.cards.filter(card => !card.cleared)
+          },
+          get points() {
+            return (this.clearedCards.length * 10) - this.misses
+          },
+          async flipCard(card) {
+
+            if (this.flippedCards.length < 2) {
+              card.flipped = !card.flipped
+              if (this.flippedCards.length === 2) {
+                if (this.hasMatch()) {
+                  flash('You have a match!')
+                  await pause(750)
+                  this.flippedCards.forEach(card => {
+                    card.cleared = true
+                    card.flipped = false
+                  })
+                  if (!this.remainingCards.length) {
+                    flash('You won!')
+                    await pause()
+                    this.cards.forEach(card => {
+                      card.cleared = false
+                      card.flipped = false
+                    })
+                    this.cards.sort(() => Math.random() - 0.5)
+                    flash('Play again?')
+                    this.misses = 0
+                  }
+                } else {
+                  flash('Sorry, no match.')
+                  this.misses++
+                  await pause(750)
+                  this.flippedCards.forEach(card => card.flipped = false)
+                }
+              }
+            }
+          },
+          hasMatch(){
+            return this.flippedCards[0]['color'] === this.flippedCards[1]['color']
+          }
+        }
+      }
+    </script>
+
+</body>
+</html>

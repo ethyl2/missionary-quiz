@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lindon 13th Ward Missionary Quiz</title>
+    <meta property="og:image" content="https://ethyl2.github.io/missionary-quiz/static/images/missionary-og.png">
+    <meta property="og:image:alt" content="Lindon 13th Ward Missionary Quiz">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -19,9 +24,10 @@
       }
     </script>
 </head>
-<body>
-    <main class="container mx-auto flex flex-col py-12 items-center justify-start space-y-6">
-        <a href="https://youtu.be/f8UdoeW9RE4" target="_blank" class="text-4xl text-center block mt-10">Lindon 13th Ward Missionary Quiz</a>
+<body class="bg-cover bg-bottom" style="background: url('./static/images/bg/swirl-bg-2.jpg')">
+    <main class="container mx-auto flex flex-col py-12 items-center justify-start space-y-6 md:space-y-12">
+        <h1 class="text-4xl text-center block mt-10 font-bold bg-white/30 px-4 py-2 md:rounded-md backdrop-blur">
+            <a href="https://youtu.be/f8UdoeW9RE4" target="_blank" class="hover:text-blue-800">Lindon 13th Ward Missionaries Video</a> & Quiz Game</h1>
         
         <iframe 
             class="md:hidden mx-auto pt-4 shadow rounded-md" 
@@ -49,30 +55,153 @@
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
         </iframe>
 
-        <ul class="grid grid-cols-2 px-4 md:flex md:flex-wrap md:items-center md:justify-center md:space-x-4 md:space-y-4 md:text-lg lg:text-xl 2xl:text-3xl lg:space-x-8 lg:space-y-8">
-            <li>
+        <h2 class="font-bold text-lg sm:text-2xl text-center bg-white/30 px-4 py-2 md:rounded-md backdrop-blur">Click on a missionary below to play their matching game!</h2>
+
+        <ul class="grid grid-cols-2 gap-4 px-4 md:flex md:flex-wrap md:items-center md:justify-center md:space-x-4 md:space-y-4 md:text-lg lg:text-xl 2xl:text-3xl lg:space-x-8 lg:space-y-8">
+            <li class="md:pt-4">
                 <a href="./elder-schade.html" 
                     target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
                 >
                     <span class="curved-text">Elder Schade </span>
                     <div 
-                        class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
                         style="background-image: url('./static/images/elder-schade.png');"
                     >
                 </div>
                 </a>
             </li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Ockey </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover bg-gradient-to-b from-gray-500 to-blue-200"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Conder </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/elder-conder.png');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Sister Thomas </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/sister-thomas.png');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Marshall </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/elder-marshall.png');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Sister Patten </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/sister-patten.png');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Anderson </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/elder-anderson.png');"></div>
+
+            
+
+            <li>
+                <a href="./elder-conder.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Conder </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/elder-conder.png');"
+                    >
+                </div>
+                </a>
             </li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Jones </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/elder-jones.png');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Wright </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/elder-wright.jpeg');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Sister Schade </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/sister-schade.png');"></div></li>
-            <li class="flex flex-col items-center justify-center font-bold space-y-2"><span class="curved-text">Elder Andersen </span><div class="shadow-md w-24 h-24 md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('./static/images/elder-andersen.jpeg');"></div></li>
+
+            <li>
+                <a href="./sister-thomas.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Sister Thomas </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/sister-thomas.png');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./elder-marshall.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Marshall </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/elder-marshall.png');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./sister-patten.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Sister Patten </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/sister-patten.png');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./elder-anderson.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Anderson </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/elder-anderson.png');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./elder-jones.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Jones </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/elder-jones.png');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./elder-wright.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Wright</span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/elder-wright.jpeg');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./sister-schade.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Sister Schade</span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/sister-schade.png');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./elder-andersen.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Andersen</span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover hover:ring-4 hover:ring-purple-500" 
+                        style="background-image: url('./static/images/elder-andersen.jpeg');"
+                    >
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="./elder-ockey.html" 
+                    target="_blank"class="flex flex-col items-center justify-center font-bold space-y-2"
+                >
+                    <span class="curved-text">Elder Ockey </span>
+                    <div 
+                        class="shadow-md w-24 h-24 border-4 border-white md:w-56 md:h-56 rounded-full bg-center bg-no-repeat bg-cover bg-gradient-to-b from-gray-500 to-blue-200 hover:ring-4 hover:ring-purple-500" 
+                        
+                    >
+                </div>
+                </a>
+            </li>
         </ul>
     </main>
     <script src="arctext.js"></script>
